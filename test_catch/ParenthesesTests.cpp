@@ -22,9 +22,9 @@ SCENARIO("Parentheses", "[Parentheses]") {
            }
        }
    }
-   GIVEN("Parentheses, )( input string")
+   GIVEN("Parentheses, )(, ][, }{ input string")
    {
-       std::vector <std::string> input {")("};
+       std::vector <std::string> input {")(", "][", "}{"};
        Parentheses p;
        for (auto element:input)
        {
@@ -41,7 +41,7 @@ SCENARIO("Parentheses", "[Parentheses]") {
    }
    GIVEN("Parentheses, [)()] input string")
    {
-       std::vector <std::string> input {"[)(]"};
+       std::vector <std::string> input {"[)(]", "{)(}"};
        Parentheses p;
        for (auto element:input)
        {
