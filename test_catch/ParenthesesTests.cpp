@@ -2,46 +2,22 @@
 #include "catch.hpp"
 #include "Parentheses.hpp"
 #include <string>
+#include <vector>
 
 
 SCENARIO("Parentheses", "[Parentheses]") {
     GIVEN("Parentheses, empty input string") {
-        std::string input{};
+        std::vector <std::string> input{"", "()", "{}", "[]"};
         Parentheses p;
 
-        WHEN("isBalanced() is called") {
-            auto result = p.isBalanced(input);
+        for(auto currentCase : input){
+            WHEN("isBalanced() is called") {
+                auto result = p.isBalanced(currentCase);
 
-            THEN("The result is true") {
-                CHECK(result == true);
+                 THEN("The result is true") {
+                    CHECK(result == true);
+                }
             }
         }
     }
-
-    GIVEN("Parentheses, simple ()") {
-        std::string input{"()"};
-        Parentheses p;
-
-        WHEN("isBalanced() is called") {
-            auto result = p.isBalanced(input);
-
-            THEN("The result is true") {
-                CHECK(result == true);
-            }
-        }
-    }
-    GIVEN("Parentheses, simple {}") {
-        std::string input{"{}"};
-        Parentheses p;
-
-        WHEN("isBalanced() is called") {
-            auto result = p.isBalanced(input);
-
-            THEN("The result is true") {
-            CHECK(result == true);
-            }
-        }
-    }
-
-
 }
