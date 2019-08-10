@@ -20,6 +20,7 @@ SCENARIO("Parentheses", "[Parentheses]") {
             }
         }
     }
+
     GIVEN("Parentheses, basic negative cases") {
         std::vector <std::string> input{")(", "}{", "]["};
         Parentheses p;
@@ -34,4 +35,20 @@ SCENARIO("Parentheses", "[Parentheses]") {
             }
         }
     }
+
+    GIVEN("Parentheses, mixed types positive") {
+        std::vector <std::string> input{"()[]", "{}[]", "{}()"};
+        Parentheses p;
+
+        for(auto currentCase : input){
+            WHEN("isBalanced() is called") {
+                auto result = p.isBalanced(currentCase);
+
+                THEN("The result is true") {
+                    CHECK(result == true);
+                }
+            }
+        }
+    }
+
 }
