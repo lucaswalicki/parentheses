@@ -9,8 +9,6 @@ bool Parentheses::isBalanced(std::string s)
         "}{",
         ")(",
         "][",
-        "[)(]",
-        "{)(}"
     };
     return std::none_of(inputFalse.begin(),
                         inputFalse.end(),
