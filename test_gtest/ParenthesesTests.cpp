@@ -14,3 +14,16 @@ TEST(ParenthesesTests, givenEmptyStringWhenIsBalancedIsCalledThenResultIsTrue)
     // THEN
     ASSERT_TRUE(result);
 }
+
+TEST(ParenthesesTests, givenParenthesesWhenIsBalancedAlgoIsCalledThenResultIsTrue)
+{
+    //GIVEN
+    std::string input {"()(())()"};
+    Parentheses p;
+
+    //WHEN
+    auto result = p.isBalancedAlgo(input);
+
+    //THEN
+    ASSERT_TRUE(result);
+}

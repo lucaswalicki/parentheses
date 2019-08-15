@@ -17,3 +17,20 @@ bool Parentheses::isBalanced(std::string s)
         return s.find(negative) != std::string::npos;
     });
 }
+bool Parentheses::isBalancedAlgo(std::string& s)
+{
+    auto it=s.begin();
+    for(size_t i=0; i<=s.size(); ++i)
+    {
+        if(s[i]=='(' and s[i+1]==')')
+            {
+                s.erase(it);
+                s.erase(it);
+                i=-1;
+                it=s.begin();
+            }
+        else 
+            {++it;}
+    }
+    return s.empty();
+}
