@@ -15,7 +15,7 @@ TEST(ParenthesesTests, givenEmptyStringWhenIsBalancedIsCalledThenResultIsTrue)
     ASSERT_TRUE(result);
 }
 
-TEST(ParenthesesTests, givenParenthesesWhenIsBalancedAlgoIsCalledThenResultIsTrue)
+TEST(ParenthesesTests, givenRoundParenthesesWhenIsBalancedAlgoIsCalledThenResultIsTrue)
 {
     //GIVEN
     std::string input {"()(())()"};
@@ -26,6 +26,110 @@ TEST(ParenthesesTests, givenParenthesesWhenIsBalancedAlgoIsCalledThenResultIsTru
 
     //THEN
     ASSERT_TRUE(result);
+}
+
+TEST(ParenthesesTests, givenRoundParenthesesWrongWhenIsBalancedAlgoIsCalledThenResultIsFalse)
+{
+    //GIVEN
+    std::string input {"()())"};
+    Parentheses p;
+
+    //WHEN
+    auto result = p.isBalancedAlgo(input);
+
+    //THEN
+    ASSERT_EQ(false,result);
+}
+
+TEST(ParenthesesTests, givenSquaredParenthesesWhenIsBalancedAlgoIsCalledThenResultIsTrue)
+{
+    //GIVEN
+    std::string input {"[[]][]"};
+    Parentheses p;
+
+    //WHEN
+    auto result = p.isBalancedAlgo(input);
+
+    //THEN
+    ASSERT_EQ(true,result);
+}
+
+TEST(ParenthesesTests, givenSquaredParenthesesWrongWhenIsBalancedAlgoIsCalledThenResultIsFalse)
+{
+    //GIVEN
+    std::string input {"[][[]"};
+    Parentheses p;
+
+    //WHEN
+    auto result = p.isBalancedAlgo(input);
+
+    //THEN
+    ASSERT_EQ(false,result);
+}
+
+TEST(ParenthesesTests, givenCurlyParenthesesWhenIsBalancedAlgoIsCalledThenResultIsTrue)
+{
+    //GIVEN
+    std::string input {"{}{}{{}}{{{}}}"};
+    Parentheses p;
+
+    //WHEN
+    auto result = p.isBalancedAlgo(input);
+
+    //THEN
+    ASSERT_EQ(true,result);
+}
+
+TEST(ParenthesesTests, givenCurlyParenthesesWrongWhenIsBalancedAlgoIsCalledThenResultIsFalse)
+{
+    //GIVEN
+    std::string input {"{{}}{}{{}"};
+    Parentheses p;
+
+    //WHEN
+    auto result = p.isBalancedAlgo(input);
+
+    //THEN
+    ASSERT_EQ(false,result);
+}
+
+TEST(ParenthesesTests, givenMixedParenthesesWhenIsBalancedAlgoIsCalledThenResultIsTrue)
+{
+    //GIVEN
+    std::string input {"{()}[[{}]]()({})"};
+    Parentheses p;
+
+    //WHEN
+    auto result = p.isBalancedAlgo(input);
+
+    //THEN
+    ASSERT_EQ(true,result);
+}
+
+TEST(ParenthesesTests, givenMixedParenthesesWrongWhenIsBalancedAlgoIsCalledThenResultIsFalse)
+{
+    //GIVEN
+    std::string input {"{(])}[[{}]]"};
+    Parentheses p;
+
+    //WHEN
+    auto result = p.isBalancedAlgo(input);
+
+    //THEN
+    ASSERT_EQ(false,result);
+}
+
+TEST(ParenthesesTests, givenMixedWithWhiteSpacesParenthesesWhenIsBalancedAlgoIsCalledThenResultIsTrue)
+{
+    //GIVEN
+    std::string input {"[   ](   ){  }"};
+    Parentheses p;
+
+    //WHEN
+    auto result = p.isBalancedAlgo(input);
+
+    //THEN
+    ASSERT_EQ(true,result);
 }
 
 TEST(ParenthesesTests, givenGoodParenthesesWhenIsBalancedIsCalledThenResultIsTrue)

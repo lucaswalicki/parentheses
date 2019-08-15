@@ -19,10 +19,11 @@ bool Parentheses::isBalanced(std::string s)
 }
 bool Parentheses::isBalancedAlgo(std::string& s)
 {
+    s.erase(std::remove(s.begin(), s.end(), ' '), s.end());
     auto it=s.begin();
     for(size_t i=0; i<=s.size(); ++i)
     {
-        if(s[i]=='(' and s[i+1]==')')
+        if(s[i]=='(' and s[i+1]==')' or s[i]=='[' and s[i+1]==']' or s[i]=='{' and s[i+1]=='}' )
             {
                 s.erase(it);
                 s.erase(it);
