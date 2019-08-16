@@ -5,7 +5,7 @@
 #include <vector>
 
 SCENARIO("Parentheses", "[Parentheses]") {
-   GIVEN("Parentheses, {} input string")
+   GIVEN("Parentheses, (),[],{} input string")
    {
        std::vector <std::string> input {"()","[]","{}"};
        Parentheses p;
@@ -86,6 +86,167 @@ SCENARIO("Parentheses", "[Parentheses]") {
                THEN("The result is false")
                {
                    CHECK(result == false);
+               }
+           }
+       }
+   }
+   GIVEN("Parentheses, ()(())()  input string")
+   {
+       std::vector <std::string> input {"()(())()"};
+       Parentheses p;
+       for (auto element:input)
+       {
+           WHEN("isBalancedAlgo() is called")
+           {
+              auto result = p.isBalancedAlgo(element);
+
+               THEN("The result is true")
+               {
+                   CHECK(result == true);
+               }
+           }
+       }
+   }
+   GIVEN("Parentheses, ()())  input string")
+   {
+       std::vector <std::string> input {"()())"};
+       Parentheses p;
+       for (auto element:input)
+       {
+           WHEN("isBalancedAlgo() is called")
+           {
+              auto result = p.isBalancedAlgo(element);
+
+               THEN("The result is false")
+               {
+                   CHECK(result == false);
+
+               }
+           }
+       }
+   }
+   GIVEN("Parentheses, [[]][]  input string")
+   {
+       std::vector <std::string> input {"[[]][]"};
+       Parentheses p;
+       for (auto element:input)
+       {
+           WHEN("isBalancedAlgo() is called")
+           {
+              auto result = p.isBalancedAlgo(element);
+
+               THEN("The result is true")
+               {
+                   CHECK(result == true);
+
+               }
+           }
+       }
+   }
+   GIVEN("Parentheses, [][[]  input string")
+   {
+       std::vector <std::string> input {"[][[]"};
+       Parentheses p;
+       for (auto element:input)
+       {
+           WHEN("isBalancedAlgo() is called")
+           {
+              auto result = p.isBalancedAlgo(element);
+
+               THEN("The result is false")
+               {
+                   CHECK(result == false);
+
+               }
+           }
+       }
+   }
+   GIVEN("Parentheses, {}{}{{}}{{{}}}  input string")
+   {
+       std::vector <std::string> input {"{}{}{{}}{{{}}}"};
+       Parentheses p;
+       for (auto element:input)
+       {
+           WHEN("isBalancedAlgo() is called")
+           {
+              auto result = p.isBalancedAlgo(element);
+
+               THEN("The result is true")
+               {
+                   CHECK(result == true);
+
+               }
+           }
+       }
+   }
+   GIVEN("Parentheses, {{}}{}{{}  input string")
+   {
+       std::vector <std::string> input {"{{}}{}{{}"};
+       Parentheses p;
+       for (auto element:input)
+       {
+           WHEN("isBalancedAlgo() is called")
+           {
+              auto result = p.isBalancedAlgo(element);
+
+               THEN("The result is false")
+               {
+                   CHECK(result == false);
+
+               }
+           }
+       }
+   }
+   GIVEN("Parentheses, {()}[[{}]]()({})  input string")
+   {
+       std::vector <std::string> input {"{()}[[{}]]()({})"};
+       Parentheses p;
+       for (auto element:input)
+       {
+           WHEN("isBalancedAlgo() is called")
+           {
+              auto result = p.isBalancedAlgo(element);
+
+               THEN("The result is true")
+               {
+                   CHECK(result == true);
+
+               }
+           }
+       }
+   }
+   GIVEN("Parentheses, {(])}[[{}]]  input string")
+   {
+       std::vector <std::string> input {"{(])}[[{}]]"};
+       Parentheses p;
+       for (auto element:input)
+       {
+           WHEN("isBalancedAlgo() is called")
+           {
+              auto result = p.isBalancedAlgo(element);
+
+               THEN("The result is false")
+               {
+                   CHECK(result == false);
+
+               }
+           }
+       }
+   }
+   GIVEN("Parentheses, [   ](   ){  }  input string")
+   {
+       std::vector <std::string> input {"[   ](   ){  }"};
+       Parentheses p;
+       for (auto element:input)
+       {
+           WHEN("isBalancedAlgo() is called")
+           {
+              auto result = p.isBalancedAlgo(element);
+
+               THEN("The result is true")
+               {
+                   CHECK(result == true);
+
                }
            }
        }
