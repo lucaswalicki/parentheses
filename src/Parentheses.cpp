@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 
+
 bool Parentheses::isBalanced(std::string s)
 {
     std::vector<std::string> inputFalse
@@ -31,7 +32,9 @@ bool Parentheses::isBalancedAlgo(std::string& s)
                 it=s.begin();
             }
         else 
-            {++it;}
+            {
+                ++it;
+            }
     }
     return s.empty();
 }
